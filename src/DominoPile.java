@@ -30,14 +30,12 @@ public class DominoPile {
         }
 
         pile.clear(); // clear original pile
-        for (Domino domino : temp){
-            pile.add(domino);
-        }
+        pile.addAll(temp);
     }
 
     public void shuffleTwo() {
         Random r1 = new Random();
-        for (int i = 0; i <= pile.size()-1; i--) {
+        for (int i = pile.size()-1; i > 0; i--) {
             Collections.swap(pile, i, r1.nextInt(pile.size()));
         }
     }

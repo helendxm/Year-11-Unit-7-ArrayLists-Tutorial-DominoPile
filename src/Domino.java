@@ -33,10 +33,9 @@ public class Domino {
     }
 
     public void flip(){
-        int t = top;
-        int b = bottom;
-        top = b;
-        bottom = t;
+        int temp = top;
+        top = bottom;
+        bottom = temp;
     }
 
     public void settle(){
@@ -48,10 +47,10 @@ public class Domino {
     public int compareTo(Domino other){
         int result = 0;
 
-        int thisSmaller = 0;
-        int thisLarger = 0;
-        int otherSmaller = 0;
-        int otherLarger = 0;
+        int thisSmaller;
+        int thisLarger;
+        int otherSmaller;
+        int otherLarger;
 
         if (this.top < this.bottom){
             thisSmaller = top;
@@ -84,9 +83,6 @@ public class Domino {
             else if (thisLarger > otherLarger){
                 result = 1;
             }
-            else {
-                result = 0;
-            }
         }
         return result;
     }
@@ -99,9 +95,6 @@ public class Domino {
         }
         else if (thisTotal > other.top + other.bottom){
             result = 1;
-        }
-        else if (thisTotal == other.top + other.bottom){
-            result = 0;
         }
 
         return result;
